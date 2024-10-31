@@ -1,0 +1,52 @@
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+
+# Membuat class LinkedList
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+# Fungsi untuk membalikkan elemen-elemen Linked List
+    def reverse_elements(self):
+        prev = None
+        current = self.head
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
+
+# Fungsi untuk menampilkan elemen-elemen Linked List
+    def display_elements(self):
+        current = self.head
+        while current:
+            print(current.data)
+            current = current.next
+
+# Membuat objek Linked List
+linked_list = LinkedList()
+
+# Menambahkan elemen ke Linked List
+linked_list.head = Node(23)
+second = Node(43)
+third = Node(12)
+fourth = Node(71)
+fifth = Node(87)
+
+# Menghubungkan elemen-elemen Linked List
+linked_list.head.next = second
+second.next = third
+third.next = fourth
+fourth.next = fifth
+
+# Menampilkan elemen-elemen Linked List sebelum di-reverse
+linked_list.display_elements()
+
+# Memanggil fungsi reverse_elements
+linked_list.reverse_elements()
+
+# Menampilkan elemen-elemen Linked List setelah di-reverse
+linked_list.display_elements()
